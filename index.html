@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kristianni Lopez | Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --c1: #999999;
+      --c2: #777777;
+      --c3: #555555;
+      --c4: #333333;
+      --c5: #111111;
+      --white: #ffffff;
+      --shadow: 10px 10px 0px #000000;
+      --border: 3px solid #111111;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #e9e9e9;
+      color: var(--c5);
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: var(--c5);
+    }
+
+    .floating-shape {
+      position: fixed;
+      width: 250px;
+      height: 250px;
+      background: rgba(85, 85, 85, 0.2);
+      border: 3px solid var(--c5);
+      z-index: -1;
+      animation: float 8s ease-in-out infinite;
+      transform-style: preserve-3d;
+    }
+
+    .shape1 {
+      top: 8%;
+      right: 5%;
+      transform: rotate(25deg);
+    }
+
+    .shape2 {
+      bottom: 10%;
+      left: 3%;
+      animation-delay: 2s;
+      border-radius: 50%;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(20deg);
+      }
+      50% {
+        transform: translateY(-25px) rotate(-10deg);
+      }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      right: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white);
+      background: var(--c5);
+      padding: 14px 28px;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover,
+    .social-top a:hover,
+    .submit-btn:hover,
+    .project-card:hover {
+      transform: translate(-6px, -6px);
+      box-shadow: 16px 16px 0px #000000;
+    }
+
+    .social-top {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-top a {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      color: var(--c5);
+      text-decoration: none;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    .social-top iconify-icon {
+      font-size: 1.4rem;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 140px 8% 60px;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-bottom: 25px;
+      color: var(--c5);
+      text-shadow: 4px 4px 0px #777777;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 900px;
+      margin-bottom: 50px;
+      color: var(--c4);
+      font-weight: 500;
+    }
+
+    /* BIO */
+
+    .bio-container {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .name-block {
+      margin-bottom: 30px;
+    }
+
+    .name-block h1 {
+      font-size: 5rem;
+      line-height: 0.9;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--c5);
+      margin-bottom: 15px;
+    }
+
+    .role {
+      display: inline-block;
+      padding: 10px 18px;
+      background: var(--c5);
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 2px;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      text-transform: uppercase;
+    }
+
+    .bio-card {
+      background: var(--white);
+      padding: 35px;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      margin-top: 35px;
+    }
+
+    .bio-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .bio-card p {
+      line-height: 1.9;
+      color: var(--c4);
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .skills span {
+      padding: 12px 16px;
+      background: var(--c5);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 2px solid #000;
+    }
+
+    .profile-image {
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .profile-image img {
+      width: 100%;
+      border: 4px solid #111111;
+      box-shadow: 18px 18px 0px #111111;
+      object-fit: cover;
+      transform: rotate(-3deg);
+      transition: 0.5s ease;
+    }
+
+    .profile-image img:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 35px;
+      transition: 0.4s ease;
+      transform-style: preserve-3d;
+    }
+
+    .project-number {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--c2);
+      margin-bottom: 10px;
+    }
+
+    .project-card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .project-card p {
+      line-height: 1.9;
+      color: var(--c4);
+      margin-bottom: 25px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .project-tags span {
+      background: var(--c5);
+      color: var(--white);
+      padding: 10px 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: var(--c5);
+      font-weight: 700;
+      border-bottom: 3px solid var(--c5);
+      padding-bottom: 5px;
+    }
+
+    /* CONTACT */
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .contact-info h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .contact-info p {
+      line-height: 1.9;
+      color: var(--c4);
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 18px;
+      border: 3px solid var(--c5);
+      background: #f7f7f7;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 180px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      border: var(--border);
+      background: var(--c5);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    /* FOOTER */
+
+    footer {
+      height: 2in;
+      background: var(--c5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 60px;
+      padding: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-socials a {
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+      transform: translateY(-5px);
+    }
+
+    footer p {
+      color: var(--white);
+      text-align: center;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1024px) {
+      .bio-container,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-image {
+        order: -1;
+      }
+
+      .name-block h1 {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .social-top {
+        width: 100%;
+      }
+
+      section {
+        padding: 180px 6% 60px;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+      }
+
+      .name-block h1 {
+        font-size: 3rem;
+      }
+
+      .project-card h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .social-top {
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .name-block h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+
+  <!-- NAVIGATION -->
+
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="#bio">Bio</a>
+    </div>
+
+    <div class="social-top">
+      <a href="https://www.linkedin.com/in/kristianni-lopez-4847803b0?trk=contact-info" target="_blank">
+        <iconify-icon icon="mdi:linkedin"></iconify-icon>
+      </a>
+
+      <a href="https://www.instagram.com/si.tiannooo?igsh=MXg1NW1rN2h4YTZuZQ==" target="_blank">
+        <iconify-icon icon="mdi:instagram"></iconify-icon>
+      </a>
+
+      <a href="https://www.facebook.com/share/1EpewfxY9q/" target="_blank">
+        <iconify-icon icon="mdi:facebook"></iconify-icon>
+      </a>
+
+      <a href="mailto:ltianni18@gmail.com">
+        <iconify-icon icon="mdi:email"></iconify-icon>
+      </a>
+
+      <a href="https://github.com/Tiannooo" target="_blank">
+        <iconify-icon icon="mdi:github"></iconify-icon>
+      </a>
+    </div>
+  </nav>
+
+  <!-- BIO -->
+
+  <section id="bio">
+    <h1 class="section-title">About Me</h1>
+    <p class="section-subtitle">
+      System Analyst focused on developing efficient digital systems, modern interfaces,
+      and practical solutions for business and organizational workflows.
+    </p>
+
+    <div class="bio-container">
+
+      <div>
+        <div class="name-block">
+          <h1>KRISTIANNI<br>LOPEZ</h1>
+          <div class="role">System Analyst</div>
+        </div>
+
+        <div class="bio-card">
+          <h3>Introduction</h3>
+          <p>
+            I am Kristianni Lopez, a passionate and detail-oriented System Analyst with experience
+            in software development, system management, and modern web technologies.
+            I enjoy building organized, user-friendly, and efficient digital solutions that improve
+            productivity and workflow management.
+          </p>
+
+          <h3>Skills & Technologies</h3>
+          <div class="skills">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Software Development</span>
+            <span>Web Development</span>
+            <span>System Management</span>
+            <span>Communication Skills</span>
+            <span>Team Collaboration</span>
+            <span>Analytical Skills</span>
+            <span>Problem-Solving</span>
+          </div>
+
+          <h3 style="margin-top: 30px;">Experience & Interests</h3>
+          <p>
+            Experienced in creating offline desktop systems and responsive web applications.
+            Interested in UI/UX design, workflow automation, and interactive web experiences.
+          </p>
+
+          <h3>Certification</h3>
+          <p>
+            Technical Drafting NCII – TESDA
+          </p>
+
+          <h3>Goal</h3>
+          <p>
+            My goal is to continuously develop innovative systems that improve efficiency,
+            simplify processes, and deliver meaningful user experiences.
+          </p>
+        </div>
+      </div>
+
+      <div class="profile-image">
+        <!-- Replace with your actual image -->
+        <img src="your-image.jpg" alt="Kristianni Lopez">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+    <h1 class="section-title">Featured Projects</h1>
+    <p class="section-subtitle">
+      Selected works showcasing desktop systems, responsive web development,
+      and practical software solutions.
+    </p>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-number">01</div>
+
+        <h2>HR Communications System</h2>
+
+        <p>
+          This system was specifically developed as an internal office application for the Human Resources Department.
+          It is designed to operate entirely offline on local office computers, providing a more efficient and organized
+          alternative to traditional spreadsheet-based memo tracking, such as Microsoft Excel.
+          The application centralizes memo recording, routing, monitoring, and reporting within a secure,
+          dedicated desktop environment.
+        </p>
+
+        <div class="project-tags">
+          <span>Desktop App</span>
+          <span>Offline System</span>
+          <span>HR Management</span>
+          <span>System Analysis</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">02</div>
+
+        <h2>PESTCOZAM</h2>
+
+        <p>
+          PESTCOZAM Pest Control Service provides safe and reliable solutions to keep homes and businesses pest-free.
+          We handle termites, cockroaches, rodents, and more using eco-friendly methods.
+          With trained experts and tailored plans, we ensure fast, effective service.
+          PESTCOZAM is committed to protecting your space and peace of mind.
+        </p>
+
+        <div class="project-tags">
+          <span>Web Development</span>
+          <span>Responsive Design</span>
+          <span>Business Website</span>
+          <span>UI/UX</span>
+        </div>
+
+        <a class="project-link" href="https://www.pestcozam.com" target="_blank">
+          Visit Website
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <h1 class="section-title">Contact</h1>
+    <p class="section-subtitle">
+      Let’s collaborate on projects, systems, and modern digital experiences.
+    </p>
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+        <h2>Get A Quote</h2>
+
+        <p>
+          Interested in working together? Send a message using the contact form.
+          I’m open to collaborations, software development projects, and creative digital solutions.
+        </p>
+
+        <p>
+          Email: <strong>ltianni18@gmail.com</strong>
+        </p>
+      </div>
+
+      <form action="mailto:ltianni18@gmail.com" method="POST" enctype="text/plain">
+
+        <div class="form-group">
+          <label>NAME</label>
+          <input type="text" name="name" placeholder="Your Name ..." required>
+        </div>
+
+        <div class="form-group">
+          <label>EMAIL ADDRESS</label>
+          <input type="email" name="email" placeholder="Your Email Address ..." required>
+        </div>
+
+        <div class="form-group">
+          <label>SUBJECT</label>
+          <input type="text" name="subject" placeholder="Subject ..." required>
+        </div>
+
+        <div class="form-group">
+          <label>MESSAGE</label>
+          <textarea name="message" placeholder="Your Message ..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit
+        </button>
+      </form>
+
+    </div>
+
+    <footer>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/kristianni-lopez-4847803b0?trk=contact-info" target="_blank">
+          <iconify-icon icon="mdi:linkedin"></iconify-icon>
+        </a>
+
+        <a href="https://www.instagram.com/si.tiannooo?igsh=MXg1NW1rN2h4YTZuZQ==" target="_blank">
+          <iconify-icon icon="mdi:instagram"></iconify-icon>
+        </a>
+
+        <a href="https://www.facebook.com/share/1EpewfxY9q/" target="_blank">
+          <iconify-icon icon="mdi:facebook"></iconify-icon>
+        </a>
+
+        <a href="mailto:ltianni18@gmail.com">
+          <iconify-icon icon="mdi:email"></iconify-icon>
+        </a>
+
+        <a href="https://github.com/Tiannooo" target="_blank">
+          <iconify-icon icon="mdi:github"></iconify-icon>
+        </a>
+      </div>
+
+      <p>
+        All Rights Reserved | Lopez, Kristianni O. | 2026
+      </p>
+    </footer>
+  </section>
+
+</body>
+</html>
